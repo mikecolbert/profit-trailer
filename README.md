@@ -110,6 +110,13 @@ pm2 list
 
 
 
+NOTES:
+Copy files from Mac to Raspberry Pi:
+``` scp -r /Users/mikec/Desktop/xProfitTrailer/ProfitTrailer/logs/* pi@10.0.1.95:~/ProfitTrailer/logs/ ```
+This must be one from a terminal that is not SSH'd into the Pi.
+
+Copy files from Raspberry Pi to Mac:
+``` scp -r pi@10.0.1.95:~/ProfitTrailer /Users/mikec/Desktop/ProfitTrailer ```
 
 
 
