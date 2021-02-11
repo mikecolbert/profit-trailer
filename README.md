@@ -1,6 +1,8 @@
 # profit-trailer
 Setup of ProfitTrailer on Raspberry Pi
 
+Raspberry Pi 3+ base setup and Java configuration:
+
 Clone OS to microSD card and boot up Pi with a keyboard and mouse.
 Pi will boot into GUI. Configure timezone, wireless network, and other settings. Allow it to check for updates.
 Preferences --> Raspberry Pi Configuration
@@ -68,6 +70,46 @@ sudo apt-get clean
 
 Reboot:
 ``` sudo reboot ```
+
+
+
+Install ProfitTrailer:
+``` 
+wget https://download.profittrailer.com/ProfitTrailer.zip 
+unzip ProfitTrailer.zip
+rm -r ProfitTrailer.zip
+```
+ls to see folder name:
+```
+mv ProfitTrailer0x.x.x/ ProfitTrailer
+cd ProfitTrailer
+chmod +x ProfitTrailer.jar
+```
+
+
+Install nodejs (npm is also installed with nodejs):
+```
+sudo apt-get install -y nodejs
+
+node --version
+npm --version
+```
+
+Install pm:
+``` sudo npm install pm2@latest -g ```
+
+```
+# edit pm2-ProfitTrailer.json to set a unique name in the name property then save (this may cause errors if done in nano)
+pm2 start pm2-ProfitTrailer.json
+
+pm2 start --no-daemon pm2-ProfitTrailer.json (to troubleshoot errors)
+pm2 save
+pm2 startup
+pm2 list
+```
+
+
+
 
 
 
